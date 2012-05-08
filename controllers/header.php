@@ -4,7 +4,7 @@
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<meta name="keywords" content="<?php echo $applicationLabel;?> - Complete database backup solution with restore feature" />
+	<meta name="keywords" content="<?php echo $applicationLabel;?> - Complete mysql database backup solution with restore feature" />
 	<meta name="description" content="database backup, restore, mysqldump, mysql, mysql import, mysql db backup" />
 	<title><?php echo $applicationLabel;?> - Complete database backup solution with restore feature</title>
 
