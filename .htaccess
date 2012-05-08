@@ -1,0 +1,14 @@
+
+<FilesMatch "\.(inc|txt|sql|ini|tpl|phtml)$">
+	Deny from all
+</FilesMatch>
+
+#Prevent special folders viewing
+RewriteRule ^(_backups|_demo|controllers|cgi-bin)(/.*)?$ - [F,L]
+
+
+#Shows directory but hides file list
+IndexIgnore */*
+
+#Prevent directory index/view - show forbidden message
+Options +FollowSymLinks -Indexes
