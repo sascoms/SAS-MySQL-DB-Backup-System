@@ -1,0 +1,302 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>SAS-MySQL-DB-Backup-System</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+
+		<h3 class="center alt">“SAS-MySQL-DB-Backup-System” Documentation by “sascoms” v1.0</h3>
+
+		<hr>
+
+		<h1 class="center">“SAS-MySQL-DB-Backup-System”</h1>
+
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 23/10/2011<br>
+					By: sascoms<br>
+					Email: <a href="mailto:sascoms+github@gmail.com">sascoms+github@gmail.com</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->
+
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing my application.
+If you have any questions that are beyond the scope of this help file,
+please feel free to email via my user page contact form <a href="http://themeforest.net/user/sascoms">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+
+		<hr>
+
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#installation">Installation</a></li>
+			<li><a href="#settings">Application and Backup Settings</a></li>
+			<li><a href="#dirStructure">Directory Structure</a></li>
+			<li><a href="#htmlStructure">HTML Structure</a></li>
+			<li><a href="#cssFiles">CSS Files and Structure</a></li>
+			<li><a href="#javascript">JavaScript</a></li>
+			<li><a href="#credits">Sources and Credits</a></li>
+		</ol>
+
+		<hr>
+
+
+		<h3 id="installation"><strong>A) Installation</strong> - <a href="#toc">top</a></h3>
+		<p>
+			<ol>
+				<li>Unzip the downloaded file</li>
+				<li>Move the dbbackup folder to your web root path (or any other folder browsable on the web).</li>
+				<li>Enter the application url on you favorite browser</li>
+				<li>Log in using the username "admin" and password "demo" without quotes.</li>
+				<li>Take a look at the Settings page and change any of them if necessary.</li>
+				<li>Go to Backups page and see your databases and create/restore/delete backups</li>
+			</ol>
+		</p>
+
+
+		<hr>
+
+
+
+		<h3 id="settings"><strong>B) Application and Backup Settings</strong> - <a href="#toc">top</a></h3>
+		<p>
+			You can change these settings on Settings page or manually modify the definitions.php file in the root path of the application.<br />
+			<strong>db host:</strong> your database server host name. ie: localhost, your.domain.com, etc.<br />
+			<strong>db user:</strong> your database server user name. ie: dbuser, root, etc.<br />
+			<strong>db pass:</strong> your database server user password.<br />
+			<strong>db port:</strong> your database server port.<br />
+			<strong>db backup folder:</strong> The folder where your backup files will be placed. You can use absolute path here. ie: /var/mybackups/mysql/, /var/www/_backups/, /home/user/db/backups/<br />
+			<strong>require login for this application/system:</strong> if you will integrate this application to any of your systems, then you can disable the login/authentication of the application and use your own login system.<br />
+			<strong>username:</strong> username to use for logging in the system ( default is <em>admin</em>)<br />
+			<strong>password:</strong> password to use for logging in the system ( default is <em>demo</em>)<br />
+			<strong>application label:</strong> this application's label and title. You can change it to anything you want. ie: My DB Backups, etc.<br />
+			<strong>mysqldump path:</strong> The path for mysqldump utility.<br />
+			<strong>zip path:</strong> The path for zip utility.<br />
+			<strong>gzip path:</strong> The path for gzip utility.<br />
+		</p>
+
+
+		<hr>
+
+
+
+		<h3 id="dirStructure"><strong>C) Directory Structure</strong> - <a href="#toc">top</a></h3>
+		<p>
+		<ul>
+			<li>_backups</li>
+			<li>controllers
+
+				<ul>
+					<li>backups.php</li>
+					<li>delete.php</li>
+					<li>download.php</li>
+					<li>footer.php</li>
+					<li>header.php</li>
+					<li>home.php</li>
+					<li>login.form.php</li>
+					<li>login.php</li>
+					<li>logout.php</li>
+					<li>restore.php</li>
+					<li>settings.php</li>
+				</ul>
+			</li>
+			<li>css
+				<ul>
+					<li>style.css</li>
+				</ul>
+			</li>
+			<li>images
+				<ul>
+					<li>body_bg.png</li>
+					<li>overlay.png</li>
+				</ul>
+			</li>
+			<li>js
+				<ul>
+					<li>jquery-1.4.2.min.js</li>
+				</ul>
+			</li>
+			<li>.htaccess</li>
+			<li>common.php</li>
+			<li>definitions.php</li>
+			<li>index.php</li>
+		</ul>
+
+
+		<br />
+		<br />
+
+		<h4><strong>Folder/Directory Explanations</strong>:</h4>
+			<div>
+				<strong>_backups</strong><br />
+				This folder is where your database backups will be kept.<br />
+				This folder should have write permissions by your web server (Apache, etc.)<br />
+				You can change this folder setting in your definitions.php file or by clicking the Settings link in the application.
+			</div>
+			<br />
+
+			<div>
+				<strong>controllers</strong><br />
+				This folder and the files inside it are the files that contains logic of the application.<br />
+				Do not change or modify these files unless you know what you are doing.<br />
+			</div>
+			<br />
+
+			<div>
+				<strong>css</strong><br />
+				This is the folder where CSS files are kept. There is only one CSS file and you can modify and change the styling of
+				the application by modifying the only CSS file under this folder.<br />
+			</div>
+			<br />
+
+			<div>
+				<strong>images</strong><br />
+				This folder holds the images used in CSS files and in the design/layout of the application.<br />
+			</div>
+			<br />
+
+			<div>
+				<strong>js</strong><br />
+				This folder holds the Javascript files used in this application. Currently, there is only one file which is JQuery's main core js file.<br />
+			</div>
+			<br />
+
+			<div>
+				<strong>.htaccess</strong><br />
+				Empty htaccess file (in case you need one more level for security and access.<br />
+			</div>
+			<br />
+
+			<div>
+				<strong>common.php</strong><br />
+				File that contains custom php functions used in this application.<br />
+			</div>
+			<br />
+
+			<div>
+				<strong>definitions.php</strong><br />
+				This file holds the settings and configuration for the application and the backup operations.<br />
+				You can manually edit this file for settings and configuration of the application and backups OR you can use the
+				Settings link on the left top corner of the pages.
+				<br />
+			</div>
+			<br />
+
+			<div>
+				<strong>index.php</strong><br />
+				This is the main index file of the application.<br />
+				Do not modify or change anything unless you know what you are doing.
+				<br />
+			</div>
+		</p>
+
+
+		<hr>
+
+
+		<h3 id="htmlStructure"><strong>D) HTML Structure</strong> - <a href="#toc">top</a></h3>
+		<p>
+			Most of the pages in this application has an HTML structure divided into three parts.
+			First part is in the header file and this file is common for all files.<br />
+			Second part is the content of the web page and this content is generated via the php codes.<br />
+			The third part is the footer and this is common for all files as well.
+
+
+			The HTML structure is a fixed layout with one column. This column consists of one wrapper and two rows.
+			The first row holds the title and header part of the HTML layout. And the second row is the content row where the main content is displayed.
+
+		</p>
+
+
+		<hr>
+
+		<h3 id="cssFiles"><strong>E) CSS Files and Structure</strong> - <a href="#toc">top</a></h3>
+
+		<p>I'm using one CSS file in this application. This file contains some general styling, such as anchor tag
+			colors, font-sizes, etc. But also has styling for all elements that need special styling.
+			Keep in mind, that these values might be
+			overridden somewhere else in the file.
+		</p>
+
+		<p>If you would like to edit the color, font, or style of any elements in the layout, you would something like the following:</p>
+
+		<pre>
+			#content a {
+				color: #someColor;
+			}
+		</pre>
+
+
+		<p>If you would like to edit a specific section of the site, simply
+find the appropriate label in the CSS file, and then scroll down until
+you find the appropriate style that needs to be edited.</p>
+
+		<p>The application has a background image that is placed within the images folder.
+		If you would like not to use it, just comment or remove the line below in the css file:
+
+</p>
+
+	<pre>
+		background-image: url(../images/body_bg.png); background-repeat: repeat-x;
+	</pre>
+
+		<hr>
+
+		<h3 id="javascript"><strong>F) JavaScript</strong> - <a href="#toc">top</a></h3>
+
+		<p>This theme make use of one Javascript file.</p>
+
+		<ol>
+			<li>jQuery
+			<br />
+
+			jQuery is a Javascript library that greatly reduces the amount of code that you must write.
+			</li>
+		</ol>
+
+
+		<hr>
+
+		<h3 id="credits"><strong>G) Sources and Credits</strong> - <a href="#toc">top</a></h3>
+
+		<p>I've used CSS 3 buttons styling below.
+
+		</p>
+		<ul>
+			<li><a href="http://papermashup.com/pretty-css3-buttons/">CSS 3 Buttons</a></li>
+		</ul>
+
+		<hr>
+
+
+
+
+
+
+
+		<p>Once again, thank you so much for purchasing this application. As I said
+at the beginning, I'd be glad to help you if you have any questions
+relating to this theme. No guarantees, but I'll do my best to assist.</p>
+
+		<p class="append-bottom alt large"><strong>sascoms</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+
+		<hr class="space">
+	</div><!-- end div .container -->
+</body></html>
